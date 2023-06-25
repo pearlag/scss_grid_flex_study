@@ -1,8 +1,76 @@
-$primary: crimson;
-$secondary: royalblue;
-body{
-    margin:0;padding:0;
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+    box-sizing: border-box;
 }
-h1{
-    color: $primary;
+body{
+    margin:0;
+    padding:0;
+    font: {
+        family: 'Raleway', sans-serif;
+        size: 18px;
+        weight: bold; 
+    }
+}
+.text p{
+    text: {
+        align:center;
+        overflow: hidden;
+    }
+}
+
+/* variables */
+$primary-btn: blue;
+$secondary-btn: yellow;
+$warning-btn: red;
+.btns{
+    .btn{
+        border:none;
+        text-transform: uppercase;
+        font-size: 15px;
+        padding:10px;
+        border-radius: 3px;
+        color:#fff;
+    }
+    .primary{background-color: $primary-btn;}
+    .secondary{background-color: $secondary-btn;}
+    .warning{background-color: $warning-btn;}
+}
+
+
+/* Variables*/
+$color-primary:#222;
+$color-secondaty: #333;
+$bgc-item: #eee;
+$portfolio-item-w: 300px;
+$portfolio-item-h: 300px;
+$portfolio-item-bdrs: 10px;
+$portfolio-images-url: "../images/";
+
+/* portfolio */
+.portfolio{
+    border:2px solid #000;
+    padding:20px;
+    h1{
+        text-align: center;
+        font-style: 30px;
+    }
+    &-items{
+        width:1200px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin:auto;
+        grid-gap: 15px;
+    }
+        
+    &-item{
+        border:1px solid #000;
+        width: $portfolio-item-w;
+        height: $portfolio-item-h;
+        border-radius:$portfolio-item-bdrs;
+        background-image: url($portfolio-images-url + "blog-post-01.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
 }
