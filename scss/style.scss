@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import "reset";
+@import "header";
+@import "footer";
+@import "variables";
+@import "mixin";
+@import "font";
+
 *{
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 body{
-    margin:0;
-    padding:0;
-    font: {
-        family: 'Raleway', sans-serif;
-        size: 18px;
-        weight: bold; 
-    }
+    @include default;
 }
 .text p{
     text: {
@@ -17,12 +18,11 @@ body{
         overflow: hidden;
     }
 }
-
-/* variables */
-$primary-btn: blue;
-$secondary-btn: yellow;
-$warning-btn: red;
 .btns{
+    &:hover{
+        color: #fff;
+        background-color: #000;
+    }
     .btn{
         border:none;
         text-transform: uppercase;
@@ -35,17 +35,6 @@ $warning-btn: red;
     .secondary{background-color: $secondary-btn;}
     .warning{background-color: $warning-btn;}
 }
-
-
-/* Variables*/
-$color-primary:#222;
-$color-secondaty: #333;
-$bgc-item: #eee;
-$portfolio-item-w: 300px;
-$portfolio-item-h: 300px;
-$portfolio-item-bdrs: 10px;
-$portfolio-images-url: "../images/";
-
 /* portfolio */
 .portfolio{
     border:2px solid #000;
@@ -73,4 +62,40 @@ $portfolio-images-url: "../images/";
         background-size: cover;
 
     }
+}
+
+.frame{
+    border:1px solid #000;
+    padding:10px + 10px;
+    margin: ($box-margin / 2);
+
+    h1{
+        font-size: $fs * 3;
+    }
+}
+
+.heading_wrap{
+    @include heading;
+}
+.news_headline{
+    @include heading;
+}
+
+.btnWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+        @include notice-btn;
+    }
+}
+
+.complate{
+    border:3px solid $complate-btn;
+}
+.loading{
+    border:3px solid $loading-btn;
+}
+.error{
+    border:3px solid $error-btn;
 }

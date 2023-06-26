@@ -34,3 +34,35 @@ css에서 변수 선언하는 방법
 .text{
     color: var(--변수명);
 }
+
+
+- @import "파일명";
+@import "reset";
+@import "reset.css";
+
+- 산술연산자
+변수나, 그냥 선언하며 +-*/% 사용 가능.
+
+- 재사용 선언과 사용
+@mixin{
+
+}
+@include{
+    
+}
+
+인수를 사용할 경우
+
+@mixin button-padding($updown, $leftright){
+  padding: $updown $leftright;
+}
+.yes{
+ @include button-padding(5px, 10px);
+}
+
+
+- 따로 파일을 만들어야 하는 scss
+_font.scss
+_reset.scss
+_variables.scss
+_mixin.scss

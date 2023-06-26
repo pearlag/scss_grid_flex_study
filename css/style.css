@@ -1,9 +1,73 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Noto+sans+KR:300,400,500,700,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
 body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Variables*/ /* mixin */
+.yes {
+  border: 2px solid blue;
+  padding: 5px 10px;
+}
+
+.no {
+  border: 2px solid red;
+  padding: 20px 10px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background-color: #ddd;
   margin: 0;
   padding: 0;
   font-family: "Raleway", sans-serif;
@@ -16,7 +80,10 @@ body {
   text-overflow: hidden;
 }
 
-/* variables */
+.btns:hover {
+  color: #fff;
+  background-color: #000;
+}
 .btns .btn {
   border: none;
   text-transform: uppercase;
@@ -35,7 +102,6 @@ body {
   background-color: red;
 }
 
-/* Variables*/
 /* portfolio */
 .portfolio {
   border: 2px solid #000;
@@ -61,4 +127,87 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.frame {
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 25px;
+}
+.frame h1 {
+  font-size: 45px;
+}
+
+.heading_wrap {
+  text-align: center;
+  font-style: 30px;
+  text-transform: capitalize;
+  padding: 50px 0;
+}
+.heading_wrap h1 {
+  position: relative;
+}
+.heading_wrap p {
+  color: blue;
+}
+.heading_wrap::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: red;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.news_headline {
+  text-align: center;
+  font-style: 30px;
+  text-transform: capitalize;
+  padding: 50px 0;
+}
+.news_headline h1 {
+  position: relative;
+}
+.news_headline p {
+  color: blue;
+}
+.news_headline::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: red;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnWrap button {
+  font-size: 15px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+.btnWrap button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.complate {
+  border: 3px solid skyblue;
+}
+
+.loading {
+  border: 3px solid yellow;
+}
+
+.error {
+  border: 3px solid red;
 }
