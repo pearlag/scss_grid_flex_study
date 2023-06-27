@@ -190,6 +190,7 @@ body {
   align-items: center;
 }
 .btnWrap button {
+  min-width: 140px;
   font-size: 15px;
   background-color: #fff;
   outline: none;
@@ -200,14 +201,81 @@ body {
   color: #fff;
 }
 
-.complate {
+.complate, .order {
   border: 3px solid skyblue;
 }
 
-.loading {
+.loading, .add {
   border: 3px solid yellow;
 }
 
 .error {
   border: 3px solid red;
+}
+
+.order {
+  background-color: purple;
+}
+
+.card-item {
+  border: 1px solid #000;
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  gap: 20px;
+}
+body {
+  background-color: #eee;
+  font-family: "'Raleway', sans-serif";
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "Raleway", sans-serif;
+  line-height: normal;
+}
+
+.frame h1 {
+  color: #0984e3;
+  font-size: 45px;
+}
+
+.section {
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+.section h1 {
+  font-size: 42px;
+}
+.section-inner {
+  border: 1px solid red;
+}
+.section .items {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section .items div {
+  flex-basis: 33.3333333333%;
+  border: 1px solid blue;
+}
+
+.text-link {
+  text-decoration: none;
+  color: black;
+}
+.text-link:visited {
+  color: gold;
+}
+.text-link:active {
+  color: yellow;
+}
+.text-link:hover {
+  color: crimson;
 }

@@ -34,6 +34,7 @@
 }
 
 @mixin notice-btn{
+  min-width: 140px;
   font-size: 15px;
   background-color: #fff;
   outline: none;

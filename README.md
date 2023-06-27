@@ -66,3 +66,103 @@ _font.scss
 _reset.scss
 _variables.scss
 _mixin.scss
+
+
+- extend
+다른 css 선언된 속성을 가져와서 쓸 수있다.
+.shape{
+    border:1px solid #000;
+    width:250px;
+    height:300px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card{
+    &-item{
+        @extend .shape;
+    }
+}
+
+- %
+shape라는 선택자는 없어지고,
+컴파일된 파일에서는 extend 불러오는 선택자로 새로 정의된다.
+%shape = .card-item 으로 컴파일됨.
+
+%shape{
+    border:1px solid #000;
+    width:250px;
+    height:300px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card{
+    &-item{
+        @extend %shape;
+    }
+}
+
+- 다중 변수 map-get()
+color나 font-family, font-size 정의해놓고 쓰면 편함
+
+$color:(
+  font-primary: #2d3456,
+  font-secondary: #636e72,
+  font-focus: #0984e3,
+  bgc-primary: #eee,
+  bgc-secondary: #b2bec3
+);
+
+    $font-family: (
+      kor: "'Noto Sans KR', sans-serif",
+      eng: "'Raleway', sans-serif"
+    )
+    
+    body{
+        background-color: map-get($color, bgc-primary);
+         font-family: map-get($font-family, eng);
+    }
+
+- 기본 텍스트 서식 설정 (셀프 자동화)
+이중 중첩 믹스인, 접두어 선언을 통해 간결화 
+
+<code>
+@mixin font-default{
+  font: {
+    size: $font-base;
+    weight: normal;
+    family: $font-family-base, sans-serif;
+  }
+  line-height: normal;
+}
+
+@mixin font-medium{
+  @include font-default;
+  font-size: $font-base * 2;
+}
+
+@mixin font-large{
+  @include font-default;
+  font-size: $font-base * 3;
+}
+</code>
+
+- @mixnin 배열에 매개변수 -> @include 인수 반환
+<code>
+.text-link{
+    @include links(black, gold, yellow, crimson);
+}
+
+@mixin links($link, $visited, $active, $hover){
+    text-decoration: none;
+    color:$link;
+      &:visited{
+          color:$visited;
+      }
+      &:active{
+          color:$active;
+      }
+      &:hover{
+          color:$hover;
+      }
+}
+</code>

@@ -99,3 +99,67 @@ body{
 .error{
     border:3px solid $error-btn;
 }
+
+.order{
+    @extend .complate;
+    background-color: purple;
+}
+.add{
+    @extend .loading;
+}
+
+
+%shape{
+    border:1px solid #000;
+    width:250px;
+    height:300px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    display: flex;
+    gap: 20px;
+    &-item{
+        @extend %shape;
+    }
+}
+
+body{
+    background-color: map-get($color, bgc-primary);
+    font-family: map-get($font-family, eng);
+    @include font-default;
+}
+.frame{
+    h1{
+        color: map-get($color, font-focus);
+        font-size: map-get($headline-font, large);
+        font-family: map-get($font-family, kr);
+    }
+}
+
+.section{
+    border:1px solid #000;
+    margin: 0 auto;
+    h1{
+        font-size:42px;
+    }
+    &-inner{
+        border:1px solid red;
+    }
+    .items{
+        width:900px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            flex-basis: calc(100% / 3);
+            border:1px solid blue;
+        }
+    }
+}
+
+.text-link{
+    @include links(black, gold, yellow, crimson);
+}
