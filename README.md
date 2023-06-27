@@ -5,60 +5,77 @@
 - map(false), Vendor Prefixes(null) 생성 안하는법
 
 - @at-root 선택자는 부모요소를 참조하지 않는다. 
-ex) @at-root .heading{width:100px;}
+ex)
+<code>@at-root .heading{width:100px;}</code>
 - 겹치는 접두사가 있으면 네스팅처럼 활용 가능
 ex) 
-font: {
-        family: 'Raleway', sans-serif;
-        size: 18px;
-        weight: bold; 
-    }
+<code>
+    font: {
+            family: 'Raleway', sans-serif;
+            size: 18px;
+            weight: bold; 
+        }
+</code>
 - :is() 가상클래스
 ex) 
-:is(header, section, footer) h1{
-    font-size:30px;
-}
+<code>
+    :is(header, section, footer) h1{
+        font-size:30px;
+    }
+</code>
 
 - Variables
 네이밍은 제목+색상
-$heading-color
-$heading-fc
-$heading-bgc
+<code>
+    $heading-color
+    $heading-fc
+    $heading-bgc
+</code>
 변수는 '',""로 묶지 않는다. 
+<code>
 background-image: url($portfolio-images-url + "blog-post-01.jpg");
+</code>
 
 css에서 변수 선언하는 방법
-:root{
-    --변수명: 값;
-}
-.text{
-    color: var(--변수명);
-}
+<code>
+    :root{
+        --변수명: 값;
+    }
+    .text{
+        color: var(--변수명);
+    }
+</code>
 
 
 - @import "파일명";
-@import "reset";
-@import "reset.css";
+<code>
+    @import "reset";
+    @import "reset.css";
+</code>
 
 - 산술연산자
 변수나, 그냥 선언하며 +-*/% 사용 가능.
 
 - 재사용 선언과 사용
-@mixin{
-
-}
-@include{
+<code>
+    @mixin{
     
-}
+    }
+    @include{
+        
+    }
+</code>
 
 인수를 사용할 경우
 
-@mixin button-padding($updown, $leftright){
-  padding: $updown $leftright;
-}
-.yes{
- @include button-padding(5px, 10px);
-}
+<code>
+    @mixin button-padding($updown, $leftright){
+      padding: $updown $leftright;
+    }
+    .yes{
+     @include button-padding(5px, 10px);
+    }
+</code>
 
 
 - 따로 파일을 만들어야 하는 scss
@@ -70,57 +87,63 @@ _mixin.scss
 
 - extend
 다른 css 선언된 속성을 가져와서 쓸 수있다.
-.shape{
-    border:1px solid #000;
-    width:250px;
-    height:300px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-.card{
-    &-item{
-        @extend .shape;
+<code>
+    .shape{
+        border:1px solid #000;
+        width:250px;
+        height:300px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-}
+    .card{
+        &-item{
+            @extend .shape;
+        }
+    }
+</code>
 
 - %
 shape라는 선택자는 없어지고,
 컴파일된 파일에서는 extend 불러오는 선택자로 새로 정의된다.
 %shape = .card-item 으로 컴파일됨.
-
-%shape{
-    border:1px solid #000;
-    width:250px;
-    height:300px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-.card{
-    &-item{
-        @extend %shape;
+<cods>
+    
+    %shape{
+        border:1px solid #000;
+        width:250px;
+        height:300px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-}
+    .card{
+        &-item{
+            @extend %shape;
+        }
+    }
+</cods>
 
 - 다중 변수 map-get()
-color나 font-family, font-size 정의해놓고 쓰면 편함
-
-$color:(
-  font-primary: #2d3456,
-  font-secondary: #636e72,
-  font-focus: #0984e3,
-  bgc-primary: #eee,
-  bgc-secondary: #b2bec3
-);
-
-    $font-family: (
-      kor: "'Noto Sans KR', sans-serif",
-      eng: "'Raleway', sans-serif"
-    )
+<code>
+    color나 font-family, font-size 정의해놓고 쓰면 편함
     
-    body{
-        background-color: map-get($color, bgc-primary);
-         font-family: map-get($font-family, eng);
-    }
+    $color:(
+      font-primary: #2d3456,
+      font-secondary: #636e72,
+      font-focus: #0984e3,
+      bgc-primary: #eee,
+      bgc-secondary: #b2bec3
+    );
+    
+        $font-family: (
+          kor: "'Noto Sans KR', sans-serif",
+          eng: "'Raleway', sans-serif"
+        )
+        
+        body{
+            background-color: map-get($color, bgc-primary);
+             font-family: map-get($font-family, eng);
+        }
+</code>
 
 - 기본 텍스트 서식 설정 (셀프 자동화)
 이중 중첩 믹스인, 접두어 선언을 통해 간결화 
@@ -147,6 +170,7 @@ $color:(
 </code>
 
 - @mixnin 배열에 매개변수 -> @include 인수 반환
+
 <code>
 .text-link{
     @include links(black, gold, yellow, crimson);
