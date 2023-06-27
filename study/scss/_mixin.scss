@@ -1,0 +1,93 @@
+/* mixin */
+@mixin default{
+  background-color: $body-bgc;
+  margin:0;
+  padding:0;
+  font: {
+      family: 'Raleway', sans-serif;
+      size: 18px;
+      weight: bold; 
+  }
+}
+
+@mixin heading{
+  text-align: center;
+  font-style: 30px;
+  text-transform: capitalize;
+  padding: 50px 0;
+  h1{
+   position: relative;
+  }
+  p{
+      color: blue;
+  }
+  &::before{
+      content:'';
+      position: absolute;
+      width:100px;
+      height:4px;
+      background-color: red;
+      bottom:0;
+      left:50%;
+      transform: translateX(-50%);
+  }
+}
+
+@mixin notice-btn{
+  min-width: 140px;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  &:hover{
+    background-color: #000;
+    color:#fff;
+  }
+}
+
+@mixin border-style($width, $style, $color){
+  border: $width $style $color;
+}
+
+@mixin button-padding($updown, $leftright){
+  padding: $updown $leftright;
+}
+
+
+
+@mixin shadow-item{
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+@mixin font-default{
+  font: {
+    size: $font-base;
+    weight: normal;
+    family: $font-family-base, sans-serif;
+  }
+  line-height: normal;
+}
+
+@mixin font-medium{
+  @include font-default;
+  font-size: $font-base * 2;
+}
+
+@mixin font-large{
+  @include font-default;
+  font-size: $font-base * 3;
+}
+
+
+
+@mixin links($link, $visited, $active, $hover){
+    text-decoration: none;
+    color:$link;
+      &:visited{
+          color:$visited;
+      }
+      &:active{
+          color:$active;
+      }
+      &:hover{
+          color:$hover;
+      }
+}

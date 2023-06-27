@@ -1,0 +1,165 @@
+@charset 'utf-8';
+@import "reset";
+@import "variables";
+@import "mixin";
+
+/* ex01_heartbeat */
+.ex01{
+  background-color: #222;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.heart-beat{
+  position: relative;
+  width:100px;
+  height:100px;
+  background-color: #ec7979;
+  transform: rotate(45deg);
+  box-shadow: 0 -10px 100px #ec7979,
+              0 -10px 150px #ec7979,
+              0 -10px 200px #ec7979;
+  animation: heart-beat 0.5s linear infinite;
+  @keyframes heart-beat {
+    0%{
+      transform: rotate(45deg) scale(1);
+    }
+    50%{
+      transform: rotate(45deg) scale(1.05);
+    }
+    100%{
+      transform: rotate(45deg) scale(0.95);
+    }
+    
+  }
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: inherit;
+  }
+  &:before{
+    top:-50%;
+  }
+  &:after{
+    left:-50%;
+  }
+}
+
+/* ex02_figma */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400500;600&display=swap');
+.ex02{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.figma{
+  width: $logo-width;
+   > span{
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    color: $logo-color;
+    letter-spacing: $logo-spacing;
+    font: {
+      family: $logo-family;
+      weight: $logo-weight;
+      size:  $logo-width / 3;
+    }
+  }
+  .shape{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    span{
+      background-color: blue;
+      width: $logo-width / 2;
+      height: $logo-width / 2;
+      &:nth-child(1){
+        background-color: #f24e1e;
+        border-radius: 50% 0 0 50%;
+      }
+      &:nth-child(2){
+        background-color: #ff7262;
+        border-radius: 0 50% 50% 0;
+      }
+      &:nth-child(3){
+        background-color: #a259ff;
+        border-radius: 50% 0 0 50%;
+      }
+      &:nth-child(4){
+        background-color: #1abcfe;
+        border-radius: 50%;
+      }
+      &:nth-child(5){
+        background-color: #0acf83;
+        border-radius: 50% 0 50% 50%;
+      }
+    }
+  }
+}
+
+/* ex03_accordion-nav */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.ex03{
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  a{
+    text-decoration: none;
+    color:inherit;
+  }
+  .items{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   background-color: #535c68;
+   width: 250px;
+   .close-item{
+    background-color: crimson;
+    overflow: hidden;
+    text-align: center;
+   }
+   .sub-items{
+    background-color: #626e7e;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.35s;
+    &:target {
+      max-height: 500px;
+    }
+    a{
+        border-bottom: 1px solid #444c56;
+        &:last-child{border-bottom: none;}
+    }
+   }
+   .main-item > a{
+    position: relative;
+    border-bottom: 1px solid #444c56;
+    &:last-child{border-bottom: none;}
+    &:after{
+      content: '\f107'; 
+      font-family: fontawesome;
+      position: absolute;
+      top: 0;
+      right: 5%;
+      transform: translateY(50%);
+    }
+   }
+   & li a{
+    color:#fff;
+    text-transform: capitalize;
+    padding: 10px;
+    display: block;
+    } 
+  }
+
+}
