@@ -240,3 +240,10 @@ box-shadow:
           0 0 ($icon-box-size / 5) $icon-color;
 
 </code>
+
+- pointer-events: none;
+a태그가 덮여서 이벤트를 못 받을때, 위에 덮여진 코드에 이 속성을 적용하면 된다.
+
+
+- iframe 모달창(페이지를 벗어나지 않고 html 띄우기)
+noelboss.github.io/featherlight/
