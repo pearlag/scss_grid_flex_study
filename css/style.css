@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400500;600&display=swap");
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,8 +53,6 @@ table {
   border-spacing: 0;
 }
 
-/* ex02_figma_mixin */
-/* ex03_accordion-nav */
 /* ex01_heartbeat */
 .ex01 {
   background-color: #222;
@@ -208,4 +208,162 @@ table {
   text-transform: capitalize;
   padding: 10px;
   display: block;
+}
+
+/* ex04_nav_jquery */
+.ex04 {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  background-color: #000;
+  line-height: normal;
+  box-sizing: border-box;
+}
+.ex04 .faq {
+  color: #fff;
+}
+.ex04 .faq-inner {
+  width: 900px;
+  margin: auto;
+}
+.ex04 .faq-inner h1 {
+  font-size: 36px;
+  text-align: center;
+  padding: 50px 0 20px;
+}
+.ex04 .faq-title {
+  background-color: #333;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.ex04 .faq-title:before, .ex04 .faq-title:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.35s;
+}
+.ex04 .faq-title:before {
+  width: 20px;
+  height: 2px;
+  right: 20px;
+}
+.ex04 .faq-title:after {
+  height: 20px;
+  width: 2px;
+  right: 29px;
+}
+.ex04 .faq-title.active:after, .ex04 .faq-title.active:before {
+  transform: translateY(-50%) rotate(-45deg);
+  transition: 0.35s;
+}
+.ex04 .faq-content {
+  padding: 10px;
+  display: none;
+}
+
+/* ex05_light icon - variable, scss color function */
+.ex05 {
+  margin: 0;
+  background-color: #000;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.ex05 .icons {
+  list-style: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+}
+.ex05 .icons li input[name=chk-item] {
+  display: none;
+}
+.ex05 .icons li input[name=chk-item]:checked + label div {
+  border: none;
+  box-shadow: 0 0 10px rgba(116, 185, 255, 0.5), 0 0 15.015015015px rgba(116, 185, 255, 0.5), 0 0 20px rgba(116, 185, 255, 0.5), inset 0 0 3.00030003px #74b9ff;
+  text-shadow: 0 0 10px #74b9ff, 0 0 15.015015015px #74b9ff, 0 0 20px #74b9ff;
+}
+.ex05 .icons li label {
+  cursor: pointer;
+}
+.ex05 .icons li label div {
+  box-sizing: border-box;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  border: 3.00030003px solid #fff;
+  border-radius: 10px;
+  background-color: #111;
+  font-size: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+/* ex06_ login form */
+.ex06 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.ex06 .login {
+  border: 1px solid #000;
+  width: 350px;
+  height: 350px;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.ex06 .login h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+.ex06 .login input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.35s;
+  cursor: pointer;
+}
+.ex06 .login input:not([type=submit]) {
+  border: 1px solid #ccc;
+  background: url("/images/login_user.svg") no-repeat left/14% 84%;
+  padding-left: 40px;
+}
+.ex06 .login input:not([type=submit]):hover {
+  border: 1px solid skyblue;
+  box-shadow: 0 0 5px skyblue;
+}
+.ex06 .login input[type=password] {
+  background: url("/images/login_pw.svg") no-repeat left/14% 84%;
+}
+.ex06 .login input[type=email] {
+  background: url("/images/login_mail.svg") no-repeat left/14% 84%;
+}
+.ex06 .login input[type=submit] {
+  background-color: skyblue;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+.ex06 .login input[type=submit]:hover {
+  background-color: royalblue;
 }

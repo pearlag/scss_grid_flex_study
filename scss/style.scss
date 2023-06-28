@@ -1,7 +1,6 @@
 @charset 'utf-8';
 @import "reset";
-@import "variables";
-@import "mixin";
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 /* ex01_heartbeat */
 .ex01{
@@ -52,6 +51,12 @@
 
 /* ex02_figma */
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400500;600&display=swap');
+$logo-family: 'Hind', sans-serif;
+$logo-weight: 500;
+$logo-width: 150px;
+$logo-color: #222;
+$logo-spacing: 3px;
+
 .ex02{
   display: grid;
   justify-content: center;
@@ -162,4 +167,180 @@
     } 
   }
 
+}
+
+/* ex04_nav_jquery */
+.ex04{
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+  background-color: #000;
+  line-height: normal;
+  box-sizing: border-box;
+  .faq{
+    color: #fff;
+    &-inner{
+      width: 900px;
+      margin:auto;
+      h1{
+        font-size: 36px;
+        text-align: center;
+        padding: 50px 0 20px;
+      }
+    }
+    &-title{
+      background-color: #333;
+      padding: 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      position: relative;
+      &:before,
+      &:after{
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        top:50%;
+        transform: translateY(-50%);
+        transition: .35s;
+      }
+      &:before{
+        width: 20px;
+        height: 2px;
+        right:20px;
+      }
+      &:after{
+        height: 20px;
+        width: 2px;
+        right:29px;
+
+      }
+      &.active:after,
+      &.active:before{
+        transform: translateY(-50%) rotate(-45deg);
+        transition: .35s;
+      }
+    }
+    &-content{
+      padding: 10px;
+      display: none;
+    }
+
+  }
+
+}
+
+/* ex05_light icon - variable, scss color function */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+$icon-box-size:100px;
+$icon-color: #74b9ff;
+.ex05{
+  margin:0;
+  background-color: #000;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .icons{
+    list-style: none;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+    li{
+      input[name=chk-item]{
+        display: none;
+        &:checked + label div{
+          border:none;
+          box-shadow: 
+          0 0 ($icon-box-size / 10) transparentize($icon-color, 0.5),
+          0 0 ($icon-box-size / 6.66) transparentize($icon-color, 0.5),
+          0 0 ($icon-box-size / 5) transparentize($icon-color, 0.5),
+          inset 0 0 ($icon-box-size / 33.33) $icon-color;
+          text-shadow: 
+          0 0 ($icon-box-size / 10) $icon-color,
+          0 0 ($icon-box-size / 6.66) $icon-color,
+          0 0 ($icon-box-size / 5) $icon-color;
+        }
+      }
+
+      label{
+        cursor: pointer;
+        div{
+          box-sizing: border-box;
+          color:#fff;
+          width: $icon-box-size;
+          height: $icon-box-size;
+          border: $icon-box-size / 33.33 solid #fff;
+          border-radius: $icon-box-size / 10;
+          background-color: #111;
+          font-size: $icon-box-size / 2;
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+/* ex06_ login form */
+.ex06{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .login{
+    border:1px solid #000;
+    width: 350px;
+    height:350px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    h1{
+      font-family: 'Raleway',sans-serif;
+      font-size: 30px;
+      padding-bottom: 25px;
+      text-align: center;
+    }
+    input{
+      display: block;
+        width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 3px;
+        outline: none;
+        transition: 0.35s;
+        cursor: pointer;
+      &:not([type="submit"]){
+        border: 1px solid #ccc;
+        background: url('/images/login_user.svg') no-repeat left/14% 84%;
+        padding-left: 40px;
+        &:hover{
+          border:1px solid skyblue;
+          box-shadow: 0 0 5px skyblue;
+        }
+      }
+      &[type="password"]{
+        background: url('/images/login_pw.svg') no-repeat left/14% 84%;
+      }
+      &[type="email"]{
+        background: url('/images/login_mail.svg') no-repeat left/14% 84%;
+      }
+      &[type="submit"]{
+        background-color: skyblue;
+        color:#fff;
+        border:none;
+        padding:12px;
+        font-size: 15px;
+        letter-spacing: -1px;
+        &:hover{
+          background-color: royalblue;
+        }
+      }
+    }
+  }
 }

@@ -198,3 +198,45 @@ html에서 해당 선택자가 없고, css에서만 쓸 때 %를 쓴다.
       }
 }
 </code>
+
+- 단위를 하나 정해서 변할수도 있는 속성에 모두 넣어 나눈다.
+ex)
+<code>
+$icon-box-size:100px;
+box-shadow: 
+          0 0 ($icon-box-size / 10) rgba(116, 186, 255, 0.5),
+          0 0 ($icon-box-size / 6.66) rgba(116, 186, 255, 0.5),
+          0 0 ($icon-box-size / 5) rgba(116, 186, 255, 0.5),
+          inset 0 0 ($icon-box-size / 33.33) rgba(116, 186, 255, 0.5);
+          text-shadow: 
+          0 0 ($icon-box-size / 10) #74b9ff,
+          0 0 ($icon-box-size / 6.66) #74b9ff,
+          0 0 ($icon-box-size / 5) #74b9ff;
+
+
+width: $icon-box-size;
+height: $icon-box-size;
+border: $icon-box-size / 33.33 solid #fff;
+border-radius: $icon-box-size / 10;
+background-color: #111;
+font-size: $icon-box-size / 2;
+</code>
+
+-  자주 쓰는 색을 변수로 정해서 sass function을 쓴다.
+sass function
+sass-lang.com/documentation/modules/map
+color:opacify($color,0.3)
+transparentize($color,0.5)
+<code>
+$icon-color: #74b9ff;
+box-shadow: 
+          0 0 ($icon-box-size / 10) transparentize($icon-color, 0.5),
+          0 0 ($icon-box-size / 6.66) transparentize($icon-color, 0.5),
+          0 0 ($icon-box-size / 5) transparentize($icon-color, 0.5),
+          inset 0 0 ($icon-box-size / 33.33) $icon-color;
+          text-shadow: 
+          0 0 ($icon-box-size / 10) $icon-color,
+          0 0 ($icon-box-size / 6.66) $icon-color,
+          0 0 ($icon-box-size / 5) $icon-color;
+
+</code>

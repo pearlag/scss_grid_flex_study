@@ -2,64 +2,38 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>아코디언 드롭다운 nav(only css)</title>
+  <title>아코디언 드롭다운 nav(only jqeury)</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
-<body class="ex03">
-  <ul class="items">
-    <li class="close-item">
-      <a href="">Close Categorization</a>
-    </li>
-    <li class="main-item">
-      <a href="#Shoes">Shoes</a>
-      <div id="Shoes" class="sub-items">
-        <a href="#none">Lifestyle</a>
-        <a href="#none">Classics</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-      </div>
-    </li>
-    <li class="main-item">
-      <a href="#Clothing">Clothing</a>
-      <div id="Clothing" class="sub-items">
-        <a href="#none">Lifestyle</a>
-        <a href="#none">Classics</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-      </div>
-    </li>
-    <li class="main-item">
-      <a href="#Accessories">Accessories</a>
-      <div id="Accessories" class="sub-items">
-        <a href="#none">Lifestyle</a>
-        <a href="#none">Classics</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-      </div>
-    </li>
-    <li class="main-item">
-      <a href="#Sports">Sports</a>
-      <div id="Sports" class="sub-items">
-        <a href="#none">Lifestyle</a>
-        <a href="#none">Classics</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-        <a href="#none">Traning</a>
-        <a href="#none">Running</a>
-        <a href="#none">Slides</a>
-      </div>
-    </li>
-  </ul>
+<body class="ex04">
+  <section class="faq">
+    <div class="faq-inner">
+      <h1>FAQ</h1>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+      <div class="faq-title">What is Nexflix?</div>
+      <div class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nostrum temporibus ipsum officiis sint inventore debitis! Eaque sapiente ab perferendis inventore, cumque, fugit ipsa, adipisci ut voluptas illo qui impedit?</div>
+    </div>
+  </section>
+  <script>
+    $(function(){
+      $('.faq-title').click(function(){
+        $(this).siblings('.faq-content').slideUp();
+        $(this).next().slideDown();
+        $(this).addClass('active');
+        $(this).siblings('.faq-title').removeClass('active');
+
+      });
+    });
+  </script>
 </body>
 </html>
